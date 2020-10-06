@@ -24,6 +24,9 @@ class FollowPathScript extends found.Trait {
     public function new(){
         super();
         points = [];
+        #if editor
+        HealthManager.addToEditor();
+        #end
         notifyOnAwake(awake);
         notifyOnUpdate(update);
         notifyOnRender2D(drawInbetweenWaypoints);
@@ -59,6 +62,7 @@ class FollowPathScript extends found.Trait {
         initialPos = this.object.position;
         finished = false;
         uiScript = State.active.cam.getTrait(GameplayUi);
+        round = 0;
         uiScript.setRound('Round: $round');
     }
     var offset = 0.01;
@@ -68,8 +72,8 @@ class FollowPathScript extends found.Trait {
         if(lastPoint == -1)
             lastPoint = points.length-1;
 
-        var pos = points[currentPoint].position;
         var curPos = this.object.position;
+        var pos = new Vector2(points[currentPoint].position.x - (this.object.center.x-curPos.x),points[currentPoint].position.y - (this.object.center.y-curPos.y));
         if(offset > Math.abs(pos.x - curPos.x) && offset > Math.abs(pos.y - curPos.y)){
             if(currentPoint == lastPoint)
                 finished = true;
@@ -79,6 +83,7 @@ class FollowPathScript extends found.Trait {
             lastTime = 0.0;
             initialPos = curPos;
         }
+        
         this.object.moveTowards(pos,speed*dt);
 
         if(finished){
