@@ -40,9 +40,28 @@ class HealthManager extends LogicNode {
                     max: 10.0,
                     min: 0.0,
                     default_value: 0.0
+                },
+                {
+                    id: 0,
+                    node_id: 0,
+                    name: "Max Life",
+                    type: "VALUE",
+                    color: -4934476,
+                    max: 100.0,
+                    min: 0.0,
+                    default_value: 100.0
                 }
             ],
-            outputs: [],
+            outputs: [
+                {
+                    id: 0,
+                    node_id: 0,
+                    name: "On Death",
+                    type: "ACTION",
+                    color: 0xffaa4444,
+                    default_value: ""
+                }
+            ],
             buttons: [],
             color: -4962746
         };
@@ -51,7 +70,7 @@ class HealthManager extends LogicNode {
     #end
     var health:Float;
     function init(){
-        health = 100.0;
+        health = inputs[2].get();
     }
     public var isDead(get,never):Bool;
     function get_isDead(){
@@ -62,6 +81,12 @@ class HealthManager extends LogicNode {
         hit(inputs[1].get());
     }
     public function hit(amount:Float) {
-        health -= amount; 
+        if(health > 0){
+            health -= amount;
+            if(health <= 0){
+                runOutput(0);
+            }
+        }
+        
     }
 }
