@@ -21,6 +21,24 @@
                 "fr"
             ],
             "problemMatcher": []
-        }
+        },
+        {
+            "label": "Clear Chrome Cache",
+            "type": "shell",
+            "command": "rm",
+            "args": [
+                "-rf",
+                "~/.cache/chromium"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Build for HTML5",
+            "type": "shell",
+            "command": "echo",
+            "problemMatcher": [],
+            "dependsOn":["Clear Chrome Cache","Kha: Build for HTML5"]
+        },
+
     ]
 }

@@ -15,6 +15,7 @@ project.addParameter("--macro keep('gameplay')");
 
 project.targetOptions.html5.disableContextMenu = true;
 project.targetOptions.html5.webgl = true;
+//Comment these lines when you want to go in release mode:
 await project.addProject('Libraries/foundsdk/khafs');
 await project.addProject('Libraries/foundsdk/editor');
 await project.addProject('Libraries/foundsdk/foundry2d');

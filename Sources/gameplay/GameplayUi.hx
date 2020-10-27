@@ -7,7 +7,7 @@ class GameplayUi extends CanvasScript {
     var roundElement:TElement;
     public function new() {
         super("gameplayUI","font_default.ttf",kha.Assets.blobs.get("gameplayUI_json"));
-        notifyOnReady(function(){
+        notifyOnAwake(function(){
            roundElement = getElement("Round"); 
         });
     }

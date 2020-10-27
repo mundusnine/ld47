@@ -8,15 +8,16 @@
                 "runtimeExecutable": "C:\\Users\\JSNof\\scoop\\apps\\googlechrome\\current\\chrome.exe"
             },
             "linux": {
-                "runtimeExecutable": "/usr/bin/chromium"
+                "runtimeExecutable": "/home/jsnadeau/Downloads/ungoogled-chromium_83.0.4103.97-1.1_linux.AppImage"
             },
             "runtimeArgs": [
                 "--disable-web-security",
+                "--no-sandbox",
                 "--allow-insecure-localhost"
             ],
             "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}/build/html5",
-            "preLaunchTask": "Kha: Build for HTML5"
+            "preLaunchTask": "Build for HTML5"
         },
         {
             "type": "electron",
