@@ -28,7 +28,7 @@
             "command": "rm",
             "args": [
                 "-rf",
-                "~/.cache/chromium"
+                "~/.config/chromium"
             ],
             "problemMatcher": []
         },

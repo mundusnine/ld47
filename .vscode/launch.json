@@ -8,11 +8,10 @@
                 "runtimeExecutable": "C:\\Users\\JSNof\\scoop\\apps\\googlechrome\\current\\chrome.exe"
             },
             "linux": {
-                "runtimeExecutable": "/home/jsnadeau/Downloads/ungoogled-chromium_83.0.4103.97-1.1_linux.AppImage"
+                "runtimeExecutable": "/usr/bin/chromium"
             },
             "runtimeArgs": [
                 "--disable-web-security",
-                "--no-sandbox",
                 "--allow-insecure-localhost"
             ],
             "url": "http://localhost:8080",
